@@ -11,6 +11,9 @@
     height: 48px;
     background-color: #F9F9FB;
     border-radius: 5px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .input {
