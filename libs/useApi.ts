@@ -1,17 +1,14 @@
-export type getTenantResponse = {
-    name: string;
-    mainColor: string;
-    secondColor: string;
-}
+import { Tenant } from "../types/Tenant";
 
 export const useApi = () => ({
 
-    getTenant: (tenantSlug: string): boolean | getTenantResponse => {
+    getTenant: (tenantSlug: string): boolean | Tenant => {
 
         switch (tenantSlug) {
             case 'vcburguer':
 
                 return {
+                    slug: 'vcburguer',
                     name: 'VCBurguer',
                     mainColor: '#FF0000',
                     secondColor: '#00FF00'
@@ -20,6 +17,7 @@ export const useApi = () => ({
             case 'vcpizza':
 
                 return {
+                    slug: 'vcpizza',
                     name: 'VCPizza',
                     mainColor: '#0000FF',
                     secondColor: '#FF0000'
