@@ -1,8 +1,18 @@
+import { Product } from "../types/Product";
 import { Tenant } from "../types/Tenant";
 
-export const useApi = () => ({
+const TEMPORARYoneProduct: Product = { 
+    id: 1,
+    image: '/tmp/burguer.png',
+    categoryName: 'Traditional',
+    name: 'Texas Burguer',
+    price: 8.25,
+    description: 'Two 150g beef blend, Cheddar Cheese, Caramelized Bacon, Salad, House Sauce, Homemade Brioche Bread.'
+  }
 
-    getTenant: (tenantSlug: string): boolean | Tenant => {
+export const useApi = (tenantSlug: string) => ({
+
+    getTenant: (): boolean | Tenant => {
 
         switch (tenantSlug) {
             case 'vcburguer':
@@ -26,7 +36,21 @@ export const useApi = () => ({
             default: return false;
         }
 
-        
+          
+    },
+
+    getAllProduct: () => {
+        let products = [];
+        for(let q=0; q<10; q++) {
+            products.push(TEMPORARYoneProduct)
+        }
+        return products;
+    },
+
+    getProduct: (id: string) => {
+        return TEMPORARYoneProduct;
     }
+
+
 
 });
