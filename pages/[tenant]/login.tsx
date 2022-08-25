@@ -1,7 +1,8 @@
 import { GetServerSideProps } from 'next';
 import Head from 'next/head';
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import { Header } from '../../components/Header';
+import { InputField } from '../../components/InputField';
 import { useAppContext } from '../../contexts/AppContext';
 import { useApi } from '../../libs/useApi';
 import styles from '../../styles/Login.module.css';
@@ -16,6 +17,9 @@ const Login = (data: Props) => {
     setTenant(data.tenant)
   }, [] )
 
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
+
   return (
     <div className={styles.container}>
         
@@ -23,6 +27,20 @@ const Login = (data: Props) => {
             <title>Login | {data.tenant.name}</title>
         </Head>
         <Header color={data.tenant.mainColor} backHref={`/${data.tenant.slug}`} />
+
+        <InputField
+            color={data.tenant.mainColor}
+            placeholder='Type your e-mail'
+            value={email}
+            onChange={setEmail}
+        />
+        <InputField
+            color={data.tenant.mainColor}
+            placeholder='Type your password'
+            value={password}
+            onChange={setPassword}
+            password
+        />
 
     </div>
   )
