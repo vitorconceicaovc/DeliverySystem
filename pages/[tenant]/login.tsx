@@ -1,6 +1,7 @@
 import { GetServerSideProps } from 'next';
 import Head from 'next/head';
 import { useEffect, useState } from 'react';
+import { Button } from '../../components/Button';
 import { Header } from '../../components/Header';
 import { InputField } from '../../components/InputField';
 import { useAppContext } from '../../contexts/AppContext';
@@ -19,28 +20,44 @@ const Login = (data: Props) => {
 
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
-
+  const handleSubmit = () => {
+    
+  }
   return (
     <div className={styles.container}>
         
-        <Head>
-            <title>Login | {data.tenant.name}</title>
-        </Head>
-        <Header color={data.tenant.mainColor} backHref={`/${data.tenant.slug}`} />
+      <Head>
+          <title>Login | {data.tenant.name}</title>
+      </Head>
+      <Header color={data.tenant.mainColor} backHref={`/${data.tenant.slug}`} />
 
-        <InputField
-            color={data.tenant.mainColor}
-            placeholder='Type your e-mail'
-            value={email}
-            onChange={setEmail}
-        />
-        <InputField
-            color={data.tenant.mainColor}
-            placeholder='Type your password'
-            value={password}
-            onChange={setPassword}
-            password
-        />
+      <InputField
+          color={data.tenant.mainColor}
+          placeholder='Type your e-mail'
+          value={email}
+          onChange={setEmail}
+      />
+      <InputField
+          color={data.tenant.mainColor}
+          placeholder='Type your password'
+          value={password}
+          onChange={setPassword}
+          password
+      />
+
+      <Button
+        color={data.tenant.mainColor}
+        label="LogIn"
+        onClick={handleSubmit}
+        fill
+      />
+
+      <Button
+        color={data.tenant.mainColor}
+        label="LogIn"
+        onClick={handleSubmit}
+        
+      />
 
     </div>
   )
