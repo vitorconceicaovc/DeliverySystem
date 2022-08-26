@@ -12,7 +12,7 @@ const TEMPORARYoneProduct: Product = {
 
 export const useApi = (tenantSlug: string) => ({
 
-    getTenant: (): boolean | Tenant => {
+    getTenant: async () => {
 
         switch (tenantSlug) {
             case 'vcburguer':
@@ -39,7 +39,7 @@ export const useApi = (tenantSlug: string) => ({
           
     },
 
-    getAllProduct: () => {
+    getAllProduct: async () => {
         let products = [];
         for(let q=0; q<10; q++) {
             products.push(TEMPORARYoneProduct)
@@ -47,7 +47,7 @@ export const useApi = (tenantSlug: string) => ({
         return products;
     },
 
-    getProduct: (id: string) => {
+    getProduct: async (id: string) => {
         return TEMPORARYoneProduct;
     }
 
