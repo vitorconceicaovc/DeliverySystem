@@ -8,7 +8,7 @@ const TEMPORARYoneProduct: Product = {
     name: 'Texas Burguer',
     price: 8.25,
     description: 'Two 150g beef blend, Cheddar Cheese, Caramelized Bacon, Salad, House Sauce, Homemade Brioche Bread.'
-  }
+}
 
 export const useApi = (tenantSlug: string) => ({
 
