@@ -16,7 +16,7 @@ const Home = (data: Props) => {
 
   useEffect(()=>{
     setTenant(data.tenant)
-  }, [] )
+  }, [] );
 
   const [products, setProducts] = useState<Product[]>(data.products);
 
@@ -53,7 +53,7 @@ const Home = (data: Props) => {
             <ProductItem
             key={index}
             data={item}
-          />
+            />
           ))}
 
           
@@ -78,8 +78,7 @@ export const getServerSideProps: GetServerSideProps = async (context) => {
   //GET TENANT
   const tenant = await api.getTenant();
   if (!tenant) {
-    return { redirect: { destination: '/',permanent: false  }
-    }
+    return { redirect: { destination: '/', permanent: false  } }
   }
 
   // Get Products

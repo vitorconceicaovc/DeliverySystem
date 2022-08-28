@@ -6,3 +6,4 @@ export type Product = {
     price: number;
     description?: string;
 }
+

@@ -85,26 +85,24 @@ type Props = {
 tenant: Tenant
 }
 
-//erro da aula 36
-
 export const getServerSideProps: GetServerSideProps = async (context) => {
-const { tenant: tenantSlug } = context.query;
-const api = useApi();
-
-//GET TENANT
-const tenant = await api.getTenant(tenantSlug as string);
-if(!tenant) {
-return {
-    redirect: {
-    destination: '/'
+    const { tenant: tenantSlug } = context.query;
+    const api = useApi(tenantSlug as string );
+  
+    //GET TENANT
+    const tenant = await api.getTenant();
+    if (!tenant) {
+      return { redirect: { destination: '/', permanent: false  } }
     }
-}
-}
-
-
-return {
-props: {
-    tenant
-}
-}
-}
+  
+    // Get Products
+  
+    const products = await api.getAllProduct();
+  
+    return {
+      props: {
+        tenant,
+        products
+      }
+    }
+  }
