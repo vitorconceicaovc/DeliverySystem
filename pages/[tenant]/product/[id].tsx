@@ -3,6 +3,7 @@ import Head from 'next/head';
 import { useEffect, useState } from 'react';
 import { Button } from '../../../components/Button';
 import { Header } from '../../../components/Header';
+import { Quantity } from '../../../components/Quantity';
 import { useAppContext } from '../../../contexts/AppContext';
 import { useApi } from '../../../libs/useApi';
 import { useFormatter } from '../../../libs/useFormatter';
@@ -20,9 +21,15 @@ const Product = (data: Props) => {
     setTenant(data.tenant)
   }, [] )
 
+  const [qtCount, setQtCount] = useState(1)
+
   const formatter = useFormatter();
   const handleAddToCart = () => {
 
+  }
+
+  const handleUpdateQt = (newCount: number) => {
+    setQtCount(newCount);
   }
 
   return (
@@ -58,7 +65,13 @@ const Product = (data: Props) => {
       <div className={styles.qtText}>Amount</div>
       <div className={styles.area}>
         <div className={styles.areaLeft}>
-          l
+          <Quantity
+            color={data.tenant.mainColor}
+            count={qtCount}
+            onUpdateCount={handleUpdateQt}
+            min={1}
+            max={10}
+          />
         </div>
         <div className={styles.areaRight}
         
@@ -74,6 +87,7 @@ const Product = (data: Props) => {
           color={data.tenant.mainColor}
           label='Add to bag'
           onClick={handleAddToCart}
+          fill
         />
       </div>
 
