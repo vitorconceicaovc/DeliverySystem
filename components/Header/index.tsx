@@ -13,12 +13,17 @@ type Props = {
 
 
 
+
+
 export const Header = ({ backHref,color,title, subtitle, invert }: Props) => {
     return (
         <div className={styles.container} >
             <div className={styles.leftSide}>
                 <Link href={backHref} >
-                    <BackIcon color={color} />
+                    <a className={invert? styles.buttonTransparent : ''}>
+                        <BackIcon color={invert? '#FFF' : color} />
+                    </a>
+                    
                 </Link>
             </div>
             <div className={styles.centerSide}>
