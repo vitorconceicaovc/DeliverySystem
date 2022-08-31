@@ -70,6 +70,7 @@ const Product = (data: Props) => {
             count={qtCount}
             onUpdateCount={handleUpdateQt}
             min={1}
+            
           />
         </div>
         <div className={styles.areaRight}
