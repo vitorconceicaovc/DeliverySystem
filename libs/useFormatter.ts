@@ -6,11 +6,14 @@ export const useFormatter = () => ({
             currency: 'EUR'
         });
     },
-    formatQuantity: (qt: number, digits: number) => {
-        if (qt < 10) {
-            return `${'0'.repeat(digits)}${qt}`;
-        } else {
-            return qt;
+    formatQuantity: (qt: number, minDigits: number) => {
+
+        if (qt.toString().length >= minDigits) {
+            return qt.toString();
         }
+
+        const remain = minDigits - qt.toString().length;
+        return `${'0'.repeat(remain)}${qt}`;
+
     }
 })

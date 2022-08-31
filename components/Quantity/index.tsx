@@ -50,7 +50,7 @@ export const Quantity = ({ color, count, onUpdateCount, min, max }: Props) => {
                     backgroundColor: canRemove? color : '#F2F4F5'
                 }}
             >-</div>
-            <div className={styles.qt}>{formatter.formatQuantity(count, 1)}</div>
+            <div className={styles.qt}>{formatter.formatQuantity(count, 2)}</div>
             <div 
                 className={styles.button}
                 onClick={handleAdd}
