@@ -7,12 +7,15 @@ import { Button } from '../../components/Button';
 import { Header } from '../../components/Header';
 import { InputField } from '../../components/InputField';
 import { useAppContext } from '../../contexts/app';
+import { useAuthContext } from '../../contexts/auth';
 import { useApi } from '../../libs/useApi';
 import styles from '../../styles/Login.module.css';
 import { Tenant } from '../../types/Tenant';
 
 
 const Login = (data: Props) => {
+
+  const { setToken, setUser } = useAuthContext()
 
   const {tenant, setTenant} = useAppContext();
 
@@ -27,7 +30,12 @@ const Login = (data: Props) => {
   const [password, setPassword] = useState('');
 
   const handleSubmit = () => {
-    
+    setToken('1234');
+    setUser({
+      name: 'Vitor',
+      email: 'vitor@gmail.com'
+    })
+    router.push(`/${data.tenant.slug}`)
   }
 
   const handleSighUp = () => {
