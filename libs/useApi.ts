@@ -21,8 +21,8 @@ export const useApi = (tenantSlug: string) => ({
                 return {
                     slug: 'vcburguer',
                     name: 'VCBurguer',
-                    mainColor: '#FF0000',
-                    secondColor: '#00FF00'
+                    mainColor: '#FB9400',
+                    secondColor: '#FFF9F2'
                 }
                 break;
             case 'vcpizza':
@@ -30,8 +30,8 @@ export const useApi = (tenantSlug: string) => ({
                 return {
                     slug: 'vcpizza',
                     name: 'VCPizza',
-                    mainColor: '#0000FF',
-                    secondColor: '#FF0000'
+                    mainColor: '#6AB70A',
+                    secondColor: '#E0E0E0'
                 }
                 break;
             default: return false;

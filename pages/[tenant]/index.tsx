@@ -12,6 +12,7 @@ import styles from '../../styles/Home.module.css';
 import { Product } from '../../types/Product';
 import { Tenant } from '../../types/Tenant';
 import { User } from '../../types/User';
+import NoItemsIcon from '../../public/assets/noitems.svg'
 
 
 const Home = (data: Props) => {
@@ -30,9 +31,20 @@ const Home = (data: Props) => {
 
   const [sidebarOpen, setSidebarOpen] = useState(false)
 
-  const handleSearch = (searchValue: string) => {
-    console.log(`You are looking for ${searchValue}`)    
-  }
+  //searsh
+  const [filteredProducts, setFilteredProducts] = useState<Product[]>([]);
+  const [searchText, setSearchText] = useState('');
+  const handleSearch = (value: string) => setSearchText(value)
+  useEffect(() => {
+      let newFilteredProducts: Product[] = [];
+      for (let product of data.products) {
+        if (product.name.toLowerCase().indexOf(searchText.toLocaleLowerCase()) > -1) {
+          newFilteredProducts.push(product)
+        }
+      }
+      setFilteredProducts(newFilteredProducts);
+  }, [searchText]);
+  
 
   return (
     <div className={styles.container}>
@@ -64,19 +76,55 @@ const Home = (data: Props) => {
             />
           </div>
         </header>
-        <Banner/>
-        <div className={styles.grid}>
 
-          {products.map((item, index) => (
-            <ProductItem
-            key={index}
-            data={item}
-            />
-          ))}
+        {searchText && 
+          <>
+        
+            <div className={styles.searchText}>
+              Looking for <strong>{searchText}</strong>
+            </div>
 
-          
-          
-        </div>
+            {filteredProducts.length > 0 &&
+            
+              <div className={styles.grid}>
+                {filteredProducts.map((item, index) => (
+                  <ProductItem
+                  key={index}
+                  data={item}
+                  />
+                ))}
+
+              </div>
+            }
+
+            {filteredProducts.length === 0 && 
+            
+              <div className={styles.noProducts}>
+                <NoItemsIcon color='#E0E0E0'/>
+                <div className={styles.noProductsText}>Oops! There are no intes with this name</div>
+              </div>  
+            }
+        
+          </>
+        }
+
+        {!searchText && <>
+        
+          <Banner/>
+
+            <div className={styles.grid}>
+
+              {products.map((item, index) => (
+                <ProductItem
+                key={index}
+                data={item}
+                />
+              ))}
+
+            </div>
+        
+        </>}
+        
 
     </div>
   )
