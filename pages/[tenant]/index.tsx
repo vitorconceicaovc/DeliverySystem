@@ -7,7 +7,7 @@ import SearchInput from '../../components/SearchInput';
 import { Sidebar } from '../../components/Sidebar';
 import { useAppContext } from '../../contexts/app';
 import { useAuthContext } from '../../contexts/auth';
-import { useApi } from '../../libs/useApi';
+import { UseApi } from '../../libs/useApi';
 import styles from '../../styles/Home.module.css';
 import { Product } from '../../types/Product';
 import { Tenant } from '../../types/Tenant';
@@ -141,7 +141,7 @@ type Props = {
 
 export const getServerSideProps: GetServerSideProps = async (context) => {
   const { tenant: tenantSlug } = context.query;
-  const api = useApi(tenantSlug as string );
+  const api = UseApi(tenantSlug as string );
 
   //GET TENANT
   const tenant = await api.getTenant();
