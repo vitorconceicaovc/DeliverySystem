@@ -1,34 +1,78 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+<h1 align="center">Delivery System</h1>
+<p align="center">Multi-tenancy service</p>
 
-## Getting Started
+<p align="center">
+    <a href="#about">About</a> |
+    <a href="#features">Features</a> |
+    <a href="#technologies">Technologies</a> |
+    <a href="#requirements">UI</a> | 
+    <a href="#requirements">Requirements</a> 
+    
+</p>
 
-First, run the development server:
+<h4 align="center">
+   📢 project under development 📢 
+</h4>
 
-```bash
-npm run dev
-# or
-yarn dev
+<img src="public/assets/gtImage.jpg" alt="">
+
+
+<br>
+
+# About
+<p>
+    Multi-tenancy service website where 
+        • the customer can order a product based on promotions and products and view its costs and fees, • the establishment can manage products and orders and • the administrators can manage the establishments.
+</p>
+
+# Features
+- [x] Login System
+    - [x] Admin
+        - [x] Establishment management
+    - [x] Tenant
+        - [x] Order management
+        - [x] Product management
+    - [x] User
+        - [x] Shopping cart
+        - [x] Product list
+        - [x] Order visualization
+- [x] Screens 
+    - [x] Admin
+        - [x] Establishment management
+        - [x] Editing Establishment 
+    - [x] Tenant
+        - [x] Login 
+        - [x] Register
+        - [x] Orders list
+        - [x] Editing orders
+        - [x] Product list
+        - [x] Editing product
+    - [x] User
+        - [x] Login
+        - [x] Register
+        - [x] Promotions and products 
+        - [x] Specific product page
+        - [x] Shopping cart
+        - [x] Checkout 
+        - [x] Address register
+        - [x] Order list
+
+# Technologies
+- NextJS
+- Typescript
+- MySQL / PostgreSQL
+- API RESTful
+
+# UI
+
+```bash 
+https://www.figma.com/file/6M8Pq62vm6QYPqTsYJBCmf/Ui---B7Delivery?node-id=403%3A14
 ```
+# Requirements
+- For better performance the minimum requirements for programming include: 
+    - Intel Core i5 or i7 processor. 
+    - Full HD resolution, ideally 1920×1080. 
+    - 8GB of RAM.
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
-
-You can start editing the page by modifying `pages/index.tsx`. The page auto-updates as you edit the file.
-
-[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.ts`.
-
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
-
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+---
+Made with 💜 by Vítor Conceição ▶ [See my LinkdIn](https://www.linkedin.com/in/v%C3%ADtor-concei%C3%A7%C3%A3o-707404227/)

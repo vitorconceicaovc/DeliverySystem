@@ -11,7 +11,7 @@ const TEMPORARYoneProduct: Product = {
     description: 'Two 150g beef blend, Cheddar Cheese, Caramelized Bacon, Salad, House Sauce, Homemade Brioche Bread.'
 }
 
-export const UseApi = (tenantSlug: string) => ({
+export const useApi = (tenantSlug: string) => ({
 
     getTenant: async () => {
 
